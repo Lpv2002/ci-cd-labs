@@ -1,0 +1,5 @@
+Hola Mundo desde el primer pipeline de Integración Continua.
+
+Este archivo es el contenido de prueba del Laboratorio 1.
+Cualquier cambio realizado aquí y enviado con git push
+dispara automáticamente la ejecución del pipeline.

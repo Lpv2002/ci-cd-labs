@@ -1,0 +1,44 @@
+name: Primer Pipeline CI
+
+on: push
+
+jobs:
+  hello-ci:
+    name: Hello CI
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Mensaje de bienvenida
+        run: |
+          echo "================================================"
+          echo "   BIENVENIDO AL PRIMER PIPELINE DE CI/CD"
+          echo "   Modulo 4 - Laboratorio 1"
+          echo "================================================"
+          echo "Repositorio: ${{ github.repository }}"
+          echo "Rama:        ${{ github.ref_name }}"
+          echo "Commit:      ${{ github.sha }}"
+          echo "Autor:       ${{ github.actor }}"
+          echo "Evento:      ${{ github.event_name }}"
+          echo "================================================"
+
+      - name: Mostrar fecha y hora
+        run: |
+          echo "Fecha y hora (UTC):  $(date)"
+          echo "Fecha y hora (Bolivia): $(TZ='America/La_Paz' date)"
+
+      - name: Mostrar version de Git
+        run: git --version
+
+      - name: Mostrar informacion del sistema operativo
+        run: |
+          echo "Runner:  ${{ runner.name }}"
+          echo "SO:      ${{ runner.os }}"
+          echo "Arch:    ${{ runner.arch }}"
+          lsb_release -a || cat /etc/os-release
+          uname -a
+
+      - name: Finalizar pipeline
+        run: echo "Pipeline ejecutado correctamente."
