@@ -2,16 +2,22 @@
 
 Repositorio de laboratorios del **Módulo 4 — Integración y Entrega Continua**.
 
-## Laboratorio 1 — Primer Pipeline de Integración Continua
+# Instrucciones para crear un nuevo branch
 
-Pipeline básico de CI construido con **GitHub Actions** mediante *Pipeline as Code*.
+La rama debe crearse a partir de `main`.
 
-El pipeline se ejecuta automáticamente después de cada `push` y realiza lo siguiente:
+Ejemplo:
 
-- Muestra un mensaje de bienvenida.
-- Muestra la fecha y hora de ejecución.
-- Muestra la versión de Git instalada en el runner.
-- Finaliza correctamente.
+```bash
+git switch main
+git pull
+git switch -c feature/update-readme
+
+# Usando git checkout
+git checkout -b feature/12345_update_readme
+git push -u origin feature/12345_update_readme
+
+```
 
 ### Estructura del repositorio
 
