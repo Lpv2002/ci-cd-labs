@@ -1,6 +1,16 @@
 name: Primer Pipeline CI
 
-on: push
+# Laboratorio 1: el pipeline se disparaba con cualquier push.
+# Laboratorio 2: ahora tambien se ejecuta al abrir o actualizar un
+# Pull Request dirigido a main, que es el evento que valida el cambio
+# ANTES de integrarlo a la rama principal.
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   hello-ci:
@@ -42,3 +52,17 @@ jobs:
 
       - name: Finalizar pipeline
         run: echo "Pipeline ejecutado correctamente."
+
+  validacion:
+    name: Validacion del proyecto
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validar estructura del proyecto
+        run: bash scripts/validate.sh
+
+      - name: Resultado
+        run: echo "Validaciones obligatorias superadas."
