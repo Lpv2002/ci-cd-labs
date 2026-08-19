@@ -18,20 +18,3 @@ git checkout -b feature/12345_update_readme
 git push -u origin feature/12345_update_readme
 
 ```
-
-### Estructura del repositorio
-
-```
-ci-cd-labs/
-│
-├── .github/
-│   └── workflows/
-│       └── pipeline.yml
-├── README.md
-└── app/
-    └── hello.txt
-```
-
-### Cómo ver la ejecución
-
-Pestaña **Actions** del repositorio → workflow *Primer Pipeline CI*.
